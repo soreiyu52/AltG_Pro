@@ -1,0 +1,136 @@
+{% load static %}
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="{% static 'workStatus/css/materialize.min.css' %}" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="{% static 'workStatus/css/default.css' %}" media="screen,projection" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper blue darken-3">
+        <a href="#" data-target="mobileSideNav" class="sidenav-trigger show-on-large">
+          <i class="material-icons">menu</i>
+        </a>
+        <div id="title">カレンダー</div>
+      </div>
+    </nav>
+  </div>
+  <ul class="sidenav" id="mobileSideNav">
+    <li id="sideNavTitle">
+      Alt+G
+    </li>
+    <div class="divider"></div>
+    <li class="selected">
+      <a href="{% url 'workStatus:workCalendar' %}">
+        <i class="material-icons">today</i>カレンダー</a>
+    </li>
+    <li>
+      <a href="{% url 'workStatus:workStatus' %}">
+        <i class="material-icons">work</i>勤務ステータス</a>
+    </li>
+    <li>
+      <a href="{% url 'workStatus:logout' %}" class="logout">
+        <i class="material-icons">person</i>ログアウト</a>
+    </li>
+  </ul>
+  <div class="row">
+    <div class="input-field col s4 m2 offset-m3">
+      <select id="year">
+        <option value="2017">2017</option>
+        <option value="2018" selected>2018</option>
+        <option value="2019">2019</option>
+      </select>
+    </div>
+    <div class="input-field col s4 m2">
+      <select id="month">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6" selected>6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+    </div>
+    <div id="buttonBox" class="col s4 m2 offset-m3">
+      <a class="waves-effect waves-light btn blue darken-3"><i class="material-icons right">cached</i>更新</a>
+    </div>
+    <div class="section center col s12 m6 offset-m3">
+      <span id="currentMonth">6</span>
+    </div>
+    <div class="col s12 m6 offset-m3">
+      <table class="striped highlight centered">
+        <thead>
+          <tr>
+            <th class="sunday">日</th>
+            <th>月</th>
+            <th>火</th>
+            <th>水</th>
+            <th>木</th>
+            <th>金</th>
+            <th class="saturday">土</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="sunday"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1</td>
+            <td class="saturday">2</td>
+          </tr>
+          <tr>
+            <td class="sunday">3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td class="saturday">9</td>
+          </tr>
+          <tr>
+            <td class="sunday">10</td>
+            <td>11</td>
+            <td class="currentDayOfMonth">12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td class="saturday">16</td>
+          </tr>
+          <tr>
+            <td class="sunday">17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td class="saturday">23</td>
+          </tr>
+          <tr>
+            <td class="sunday">24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td class="saturday">30</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script type="text/javascript" src="{% static 'workStatus/js/materialize.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'workStatus/js/calendar.js' %}"></script>
+</body>
+</html>

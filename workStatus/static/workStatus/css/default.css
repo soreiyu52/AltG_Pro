@@ -1,0 +1,89 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+ 
+body {
+     font-family: 'Noto Sans JP', sans-serif;
+     font-size: 100%;
+}
+
+#title {
+  font-size: 18px;
+}
+
+#date {
+  margin: 15px 0px 10px 0px;
+}
+
+#currentDate {
+  font-size: 20px;
+}
+
+#toPrevMonth {
+  margin-left: 15px;
+  color: #323232;
+  line-height: 33px;
+}
+
+#toNextMonth {
+  margin-right: 15px;
+  color: #323232;
+  line-height: 33px;
+}
+
+.switch label {
+  font-size: 16px;
+  color: #a0a0a0
+}
+
+#send {
+  margin-top: -5px;
+}
+
+.collapsible-body {
+  padding: 5px;
+}
+
+#sideNavTitle {
+  color: #1565c0;
+  font-size: 25px;
+  margin-left: 15px;
+}
+
+.selected {
+  background: #bbdefb;
+}
+
+.off {
+  color: #757575;
+}
+
+.new.badge.blue {
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+table {
+  font-size: 1.2em;
+  border: #f8f8f8 solid 1px;
+}
+
+.saturday {
+  color: #1464c0; 
+}
+
+.sunday {
+  color: #c7342a;
+}
+
+#buttonBox {
+  margin: 18 0px;
+  text-align: center;
+}
+
+#currentMonth {
+  font-size: 3em;
+}
+
+.currentDayOfMonth {
+  background: #1464c0;
+  color: #FFFFFF;
+}

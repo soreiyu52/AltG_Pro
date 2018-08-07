@@ -1,0 +1,46 @@
+{% load static %}
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="{% static 'workStatus/css/materialize.min.css' %}" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="{% static 'workStatus/css/login.css' %}" media="screen,projection" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <div class="form-wrapper">
+        <h1>Alt:G</h1>
+
+        <!-- ログイン失敗時には、ここでエラーメッセージを表示する -->
+        {% if form.errors %}
+            <p>IDかパスワードが違います</p>
+        {% endif %}
+        <form method="post" action="{% url 'workStatus:login' %}"  class="form-wrapper">
+            {% csrf_token %}
+
+            <div class="form-item">
+                <div class="input-field col">
+                    {{ form.username }}
+                    <label for="id_username" class="">Username:</label>
+                </div>
+                <div class="input-field col">
+                    {{ form.password }}
+                    <label for="id_password" class="">Password:</label>
+                </div>
+            </div>
+
+            <div class="button-test">
+                <button type="submlogin.htmlit" class="waves-effect waves-light btn-large light-blue lighten-3">Login</button>
+            </div>
+        </form>
+
+        <div class="form-footer">
+            <a href="accounts:signup" class="signup">Create an account</a>
+            <a href="accounts:signup" class="signup">/workStatus/</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'workStatus/js/materialize.min.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+{% load static %}
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="{% static 'workStatus/css/materialize.min.css' %}" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="{% static 'workStatus/css/default.css' %}" media="screen,projection" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper blue darken-3">
+        <a href="#" data-target="mobileSideNav" class="sidenav-trigger show-on-large">
+          <i class="material-icons">menu</i>
+        </a>
+        <div id="title">勤怠ステータス</div>
+      </div>
+    </nav>
+  </div>
+  <ul class="sidenav" id="mobileSideNav">
+    <li id="sideNavTitle">
+      Alt+G
+    </li>
+    <div class="divider"></div>
+    <li>
+      <a href="{% url 'workStatus:workCalendar' %}">
+        <i class="material-icons">today</i>カレンダー</a>
+    </li>
+    <li class="selected">
+      <a href="{% url 'workStatus:workStatus' %}">
+        <i class="material-icons">work</i>勤務ステータス</a>
+    </li>
+    <li>
+      <a href="{% url 'workStatus:logout' %}" class="logout">
+        <i class="material-icons">person</i>ログアウト</a>
+    </li>
+  </ul>
+  <div id="date" class="row">
+    <div class="section center col s12 m6 offset-m3">
+      <a><i id="toPrevMonth" class="small material-icons left" onclick="prevMonth()">chevron_left</i></a>
+      <span id="currentDate"></span>
+      <a><i id="toNextMonth" class="small material-icons right" onclick="nextMonth()">chevron_right</i></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m6 offset-m3">
+      <div class="card">
+        <div class="card-content grey lighten-4">
+          <span class="card-title">司 太郎
+            <span class="switch right">
+              <label>
+                休暇
+                <input type="checkbox" id="status" onchange="enableSendButton()">
+                <span class="lever"></span>
+                出勤
+              </label>
+            </span>
+          </span>
+          <div class="card-action">
+            <a id="send" class="col s12 waves-effect waves-light btn red darken-3 disabled" onclick="sendStatus()">
+              <span id="sendText">勤務情報変更</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="progress" style="display: none">
+        <div class="indeterminate"></div>
+      </div>
+      <ul class="collapsible">
+        <li>
+          <div class="collapsible-header grey lighten-4">情報システム第１グループ</div>
+          <div class="collapsible-body">
+            <table class="striped centered">
+              <thead>
+                <tr>
+                  <th>氏名</th>
+                  <th>ステータス</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>司 次郎</td>
+                  <td><span class="off">休暇</span></td>
+                </tr>
+                <tr>
+                  <td>司 花子</td>
+                  <td><span class="new badge blue darken-3" data-badge-caption="">出勤</span></td>
+                </tr>
+                <tr>
+                  <td>司 三郎</td>
+                  <td><span class="new badge blue darken-3" data-badge-caption="">出勤</span></td>
+                </tr>
+                <tr>
+                  <td>司 洋子</td>
+                  <td><span class="new badge blue darken-3" data-badge-caption="">出勤</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header grey lighten-4">情報システム第２グループ</div>
+          <div class="collapsible-body">
+            <table class="striped centered">
+              <thead>
+                <tr>
+                  <th>氏名</th>
+                  <th>ステータス</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>司 次郎</td>
+                  <td><span class="off">休暇</span></td>
+                </tr>
+                <tr>
+                  <td>司 花子</td>
+                  <td><span class="new badge blue darken-3" data-badge-caption="">出勤</span></td>
+                </tr>
+                <tr>
+                  <td>司 三郎</td>
+                  <td><span class="new badge blue darken-3" data-badge-caption="">出勤</span></td>
+                </tr>
+                <tr>
+                  <td>司 洋子</td>
+                  <td><span class="new badge blue darken-3" data-badge-caption="">出勤</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header grey lighten-4">情報システム第３グループ</div>
+          <div class="collapsible-body">
+            <table class="striped centered">
+              <thead>
+                <tr>
+                  <th>氏名</th>
+                  <th>ステータス</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>司 次郎</td>
+                  <td><span class="off">休暇</span></td>
+                </tr>
+                <tr>
+                  <td>司 花子</td>
+                  <td><span class="new badge blue darken-3" data-badge-caption="">出勤</span></td>
+                </tr>
+                <tr>
+                  <td>司 三郎</td>
+                  <td><span class="new badge blue darken-3" data-badge-caption="">出勤</span></td>
+                </tr>
+                <tr>
+                  <td>司 洋子</td>
+                  <td><span class="new badge blue darken-3" data-badge-caption="">出勤</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript" src="{% static 'workStatus/js/materialize.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'workStatus/js/statusList.js' %}"></script>
+</body>
+
+</html>
